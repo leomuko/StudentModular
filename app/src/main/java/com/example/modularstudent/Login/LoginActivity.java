@@ -4,16 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.modularstudent.MainActivity;
 import com.example.modularstudent.R;
 import com.example.modularstudent.School.SelectSchool;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;

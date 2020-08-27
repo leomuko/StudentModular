@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.modularstudent.MainActivity;
+import com.example.modularstudent.Main.MainActivity;
 import com.example.modularstudent.Models.ClassModel;
 import com.example.modularstudent.R;
 import com.example.modularstudent.School.SelectSchool;
