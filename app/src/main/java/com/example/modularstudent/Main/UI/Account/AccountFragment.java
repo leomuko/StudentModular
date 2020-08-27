@@ -46,14 +46,14 @@ public class AccountFragment extends Fragment {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Type School Name");
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setMessage("Are you sure you want to Logout");
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-                builder.setPositiveButton("Add School", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         signUserOut();
