@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.modularstudent.Main.MainActivity;
 import com.example.modularstudent.Models.ClassModel;
@@ -29,6 +30,7 @@ public class SelectClass extends AppCompatActivity {
     private String mSchoolID;
     private SelectClassViewModel mSelectClassViewModel;
     private List<ClassModel> classList = new ArrayList<>();
+    private TextView mNoClassesText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,8 @@ public class SelectClass extends AppCompatActivity {
         setContentView(R.layout.activity_select_class);
 
         mRecyclerView = findViewById(R.id.rvClassSelect);
-
+        mNoClassesText = findViewById(R.id.classErrorText);
+        mNoClassesText.setVisibility(View.INVISIBLE);
         mSchoolID = getIntent().getStringExtra("SchoolId");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -70,6 +73,9 @@ public class SelectClass extends AppCompatActivity {
         final GroupAdapter adapter = new GroupAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(adapter);
+        if(classList.size() == 0){
+            mNoClassesText.setVisibility(View.VISIBLE);
+        }
         for(ClassModel c: classList){
             adapter.add(new classItem(c));
         }

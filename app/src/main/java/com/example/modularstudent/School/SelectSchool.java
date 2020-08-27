@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.modularstudent.Models.SchoolModel;
 import com.example.modularstudent.R;
@@ -27,12 +28,15 @@ public class SelectSchool extends AppCompatActivity {
     private SelectSchoolViewModel mSelectSchoolViewModel;
     private List<SchoolModel> mSchoolModelList = new ArrayList<>();
     private static final String TAG = "SelectSchool";
+    private TextView mNoSchoolErrorText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_school);
         mMRecyclerView = findViewById(R.id.rvSchoolSelect);
+        mNoSchoolErrorText = findViewById(R.id.schoolErrorText);
+        mNoSchoolErrorText.setVisibility(View.INVISIBLE);
         getSupportActionBar().setTitle("Select School");
 
         initialiseViewModel();
@@ -58,6 +62,9 @@ public class SelectSchool extends AppCompatActivity {
         final GroupAdapter adapter = new GroupAdapter();
         mMRecyclerView.setLayoutManager( new LinearLayoutManager(this));
         mMRecyclerView.setAdapter(adapter);
+        if(mSchoolModelList.size() == 0){
+            mNoSchoolErrorText.setVisibility(View.VISIBLE);
+        }
         for(SchoolModel s : mSchoolModelList){
             adapter.add(new schoolItem(s));
         }
