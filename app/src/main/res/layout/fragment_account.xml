@@ -1,14 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Main.UI.Account.AccountFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/labelYourEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_your_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/labelYourEmail"
+        app:layout_constraintTop_toBottomOf="@id/labelYourEmail"
+        tools:text="johndoe@gmail.com" />
+
+    <TextView
+        android:id="@+id/labelYourClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_your_class"
+        app:layout_constraintStart_toStartOf="@id/tvUserEmail"
+        app:layout_constraintTop_toBottomOf="@id/tvUserEmail" />
+
+    <TextView
+        android:id="@+id/tvUserClass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tvUserEmail"
+        app:layout_constraintStart_toStartOf="@id/labelYourClass"
+        app:layout_constraintTop_toBottomOf="@id/labelYourClass"
+        tools:text="Introduction to Sociology" />
+
+    <Button
+        android:id="@+id/buttonChangeClass"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_label_change_class"
+        app:layout_constraintStart_toStartOf="@id/tvUserClass"
+        app:layout_constraintTop_toBottomOf="@id/tvUserClass" />
+
+    <Button
+        android:id="@+id/buttonChangeSchool"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/button_label_change_school"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonChangeClass"
+        app:layout_constraintStart_toEndOf="@+id/buttonChangeClass"
+        app:layout_constraintTop_toTopOf="@+id/buttonChangeClass" />
+
+    <Button
+        android:id="@+id/buttonSignOut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/button_label_sign_out"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChangeClass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
