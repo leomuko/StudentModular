@@ -1,4 +1,4 @@
-package com.example.modularstudent;
+package com.example.modularstudent.Splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.modularstudent.Login.LoginActivity;
+import com.example.modularstudent.MainActivity;
+import com.example.modularstudent.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,10 +22,10 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(mAuth != null){
+                if(mAuth.getCurrentUser() != null){
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
-
                 }else{
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
 
                 }
                 finish();
