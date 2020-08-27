@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.modularstudent.Models.SchoolModel;
 import com.example.modularstudent.R;
-import com.example.modularstudent.SelectClass;
+import com.example.modularstudent.Class.SelectClass;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;

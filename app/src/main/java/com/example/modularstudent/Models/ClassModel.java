@@ -1,9 +1,12 @@
 package com.example.modularstudent.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassModel {
+public class ClassModel implements Parcelable {
 
     private String classId;
     private String createdBy;
@@ -22,6 +25,25 @@ public class ClassModel {
         this.classFiles = classFiles;
         this.classLinks = classLinks;
     }
+
+    protected ClassModel(Parcel in) {
+        classId = in.readString();
+        createdBy = in.readString();
+        assignedSchool = in.readString();
+        classTitle = in.readString();
+    }
+
+    public static final Creator<ClassModel> CREATOR = new Creator<ClassModel>() {
+        @Override
+        public ClassModel createFromParcel(Parcel in) {
+            return new ClassModel(in);
+        }
+
+        @Override
+        public ClassModel[] newArray(int size) {
+            return new ClassModel[size];
+        }
+    };
 
     public String getClassId() {
         return classId;
@@ -68,5 +90,18 @@ public class ClassModel {
 
     public void setAssignedSchool(String assignedSchool) {
         this.assignedSchool = assignedSchool;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(classId);
+        dest.writeString(createdBy);
+        dest.writeString(assignedSchool);
+        dest.writeString(classTitle);
     }
 }

@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.modularstudent.Login.LoginActivity;
-import com.example.modularstudent.MainActivity;
 import com.example.modularstudent.R;
 import com.example.modularstudent.School.SelectSchool;
-import com.example.modularstudent.SelectClass;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
