@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.modularstudent.MainActivity;
 import com.example.modularstudent.R;
+import com.example.modularstudent.School.SelectSchool;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -113,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
     private void goToMainActivity() {
         progressDialog.dismiss();
 
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SelectSchool.class);
         startActivity(intent);
         finish();
     }

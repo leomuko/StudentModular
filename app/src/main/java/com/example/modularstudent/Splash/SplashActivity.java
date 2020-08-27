@@ -9,6 +9,8 @@ import android.os.Handler;
 import com.example.modularstudent.Login.LoginActivity;
 import com.example.modularstudent.MainActivity;
 import com.example.modularstudent.R;
+import com.example.modularstudent.School.SelectSchool;
+import com.example.modularstudent.SelectClass;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
@@ -23,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(mAuth.getCurrentUser() != null){
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, SelectSchool.class));
                 }else{
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
 
