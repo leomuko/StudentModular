@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         mBottomNavigationView = findViewById(R.id.bottomNav);
         mBottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                new FilesFragment()).commit();
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
