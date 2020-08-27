@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "17995864073",
+    "firebase_url": "https://school-project-85bdb.firebaseio.com",
+    "project_id": "school-project-85bdb",
+    "storage_bucket": "school-project-85bdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17995864073:android:1e11c52bef2ab84d40c0d8",
+        "android_client_info": {
+          "package_name": "com.example.modularadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEpCcTqz2RjfJ4RolVJf8kY7Ps9JN73e0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17995864073:android:34589d3e0661790540c0d8",
+        "android_client_info": {
+          "package_name": "com.example.modularstudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEpCcTqz2RjfJ4RolVJf8kY7Ps9JN73e0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17995864073:android:291358f5f3adbbe440c0d8",
+        "android_client_info": {
+          "package_name": "com.example.modularteacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEpCcTqz2RjfJ4RolVJf8kY7Ps9JN73e0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17995864073-0eq521okamvifbb0kogipo1f37o975v2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
