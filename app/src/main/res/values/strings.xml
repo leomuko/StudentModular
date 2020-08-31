@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ModularStudent</string>
+    <string name="app_name">Student</string>
     <string name="title_files">Files</string>
     <string name="title_links">Links</string>
     <string name="title_account">Account</string>
