@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.modularstudent.Main.MainActivity;
+import com.example.modularstudent.Models.ClassFilesModel;
+import com.example.modularstudent.Models.ClassLinksModel;
 import com.example.modularstudent.Models.ClassModel;
 import com.example.modularstudent.R;
 import com.example.modularstudent.School.SelectSchool;
@@ -82,18 +85,30 @@ public class SelectClass extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull Item item, @NonNull View view) {
-                goToMainActivity(classList.get(adapter.getAdapterPosition(item)));
+                goToMainActivity(classList.get(adapter.getAdapterPosition(item)), (ArrayList<ClassFilesModel>) classList.get(adapter.getAdapterPosition(item)).getClassFiles(), (ArrayList<ClassLinksModel>) classList.get(adapter.getAdapterPosition(item)).getClassLinks());
+                Log.d("Select Class", "Class name "+ classList.get(adapter.getAdapterPosition(item)).getClassTitle());
+                Log.d("Select Class", "Files" + classList.get(adapter.getAdapterPosition(item)).getClassFiles());
+                Log.d("Select Class", "Links" + classList.get(adapter.getAdapterPosition(item)).getClassLinks());
             }
         });
 
     }
 
-    private void goToMainActivity(ClassModel classModel) {
+    private void goToMainActivity(ClassModel classModel, ArrayList<ClassFilesModel> classFiles, ArrayList<ClassLinksModel> classLinks) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("class", classModel);
+        intent.putParcelableArrayListExtra("classFiles", classFiles);
+        intent.putParcelableArrayListExtra("classlinks", classLinks);
+        startActivity(intent);
+        finish();
+    }
+
+  /*  private void goToMainActivity(ClassModel classModel) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("class", classModel);
         startActivity(intent);
         finish();
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

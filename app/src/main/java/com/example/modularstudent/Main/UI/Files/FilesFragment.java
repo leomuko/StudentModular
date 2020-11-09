@@ -18,6 +18,8 @@ import com.example.modularstudent.Models.SchoolModel;
 import com.example.modularstudent.R;
 import com.xwray.groupie.GroupAdapter;
 
+import java.util.ArrayList;
+
 
 public class FilesFragment extends Fragment {
 
@@ -25,6 +27,7 @@ public class FilesFragment extends Fragment {
     private ClassModel mMyClass;
     private RecyclerView mFilesRecyclerView;
     private TextView mErrorText;
+    private ArrayList<ClassFilesModel> mFilesModels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +35,7 @@ public class FilesFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_files, container, false);
         mMyClass = getActivity().getIntent().getParcelableExtra("class");
+        mFilesModels = getActivity().getIntent().getParcelableArrayListExtra("classFiles");
         mFilesRecyclerView = rootView.findViewById( R.id.rvFiles);
         mErrorText = rootView.findViewById(R.id.fileErrorText);
         mErrorText.setVisibility(View.INVISIBLE);
@@ -44,10 +48,10 @@ public class FilesFragment extends Fragment {
         GroupAdapter adapter = new GroupAdapter();
         mFilesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mFilesRecyclerView.setAdapter(adapter);
-        if(mMyClass.getClassFiles().size() == 0){
+        if(mFilesModels.size() == 0){
             mErrorText.setVisibility(View.VISIBLE);
         }
-        for(ClassFilesModel f: mMyClass.getClassFiles()){
+        for(ClassFilesModel f: mFilesModels){
             adapter.add(new itemFiles(getContext(), f));
         }
     }

@@ -16,6 +16,8 @@ import com.example.modularstudent.Models.ClassModel;
 import com.example.modularstudent.R;
 import com.xwray.groupie.GroupAdapter;
 
+import java.util.ArrayList;
+
 
 public class LinksFragment extends Fragment {
 
@@ -23,6 +25,7 @@ public class LinksFragment extends Fragment {
     private TextView mLinksErrorText;
     private RecyclerView mLinksRecyclerView;
     private ClassModel mMyClass;
+    private ArrayList<ClassLinksModel> mClassLinksModels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +36,7 @@ public class LinksFragment extends Fragment {
         mLinksErrorText = rootView.findViewById(R.id.linkErrorText);
         mLinksErrorText.setVisibility(View.INVISIBLE);
         mMyClass = getActivity().getIntent().getParcelableExtra("class");
-
+        mClassLinksModels = getActivity().getIntent().getParcelableArrayListExtra("classlinks");
         initialiseRecyclerView();
         return rootView;
     }
@@ -42,10 +45,10 @@ public class LinksFragment extends Fragment {
         GroupAdapter adapter = new GroupAdapter();
         mLinksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mLinksRecyclerView.setAdapter(adapter);
-        if(mMyClass.getClassLinks().size() == 0){
+        if(mClassLinksModels.size() == 0){
             mLinksErrorText.setVisibility(View.VISIBLE);
         }
-        for (ClassLinksModel c: mMyClass.getClassLinks()){
+        for (ClassLinksModel c: mClassLinksModels){
             adapter.add(new itemLinks(getContext(), c));
         }
     }

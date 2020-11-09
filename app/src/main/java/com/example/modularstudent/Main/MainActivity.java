@@ -6,16 +6,20 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.modularstudent.Class.SelectClass;
 import com.example.modularstudent.Main.UI.Account.AccountFragment;
 import com.example.modularstudent.Main.UI.Files.FilesFragment;
 import com.example.modularstudent.Main.UI.Links.LinksFragment;
+import com.example.modularstudent.Models.ClassFilesModel;
 import com.example.modularstudent.Models.ClassModel;
 import com.example.modularstudent.R;
 import com.example.modularstudent.School.SelectSchool;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
