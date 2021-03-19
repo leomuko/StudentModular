@@ -7,6 +7,7 @@ public class ClassLinksModel  implements Parcelable {
 
     private String linkName;
     private String linkUploadTime;
+    private String linkTitle;
 
     public ClassLinksModel(){}
 
@@ -15,15 +16,18 @@ public class ClassLinksModel  implements Parcelable {
         this.linkUploadTime = linkUploadTime;
     }
 
+
     protected ClassLinksModel(Parcel in) {
         linkName = in.readString();
         linkUploadTime = in.readString();
+        linkTitle = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(linkName);
         dest.writeString(linkUploadTime);
+        dest.writeString(linkTitle);
     }
 
     @Override
@@ -57,5 +61,13 @@ public class ClassLinksModel  implements Parcelable {
 
     public void setLinkUploadTime(String linkUploadTime) {
         this.linkUploadTime = linkUploadTime;
+    }
+
+    public String getLinkTitle() {
+        return linkTitle;
+    }
+
+    public void setLinkTitle(String linkTitle) {
+        this.linkTitle = linkTitle;
     }
 }

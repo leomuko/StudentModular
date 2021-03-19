@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.modularstudent.Models.ClassFilesModel;
@@ -28,6 +29,7 @@ public class FilesFragment extends Fragment {
     private RecyclerView mFilesRecyclerView;
     private TextView mErrorText;
     private ArrayList<ClassFilesModel> mFilesModels;
+    private ProgressBar mProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +40,7 @@ public class FilesFragment extends Fragment {
         mFilesModels = getActivity().getIntent().getParcelableArrayListExtra("classFiles");
         mFilesRecyclerView = rootView.findViewById( R.id.rvFiles);
         mErrorText = rootView.findViewById(R.id.fileErrorText);
+        mProgressBar = rootView.findViewById(R.id.progressBar);
         mErrorText.setVisibility(View.INVISIBLE);
         initRecyclerView();
 
@@ -45,6 +48,7 @@ public class FilesFragment extends Fragment {
     }
 
     private void initRecyclerView() {
+        mProgressBar.setVisibility(View.GONE);
         GroupAdapter adapter = new GroupAdapter();
         mFilesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mFilesRecyclerView.setAdapter(adapter);

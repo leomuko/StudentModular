@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.modularstudent.Main.MainActivity;
@@ -34,6 +35,7 @@ public class SelectClass extends AppCompatActivity {
     private SelectClassViewModel mSelectClassViewModel;
     private List<ClassModel> classList = new ArrayList<>();
     private TextView mNoClassesText;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class SelectClass extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.rvClassSelect);
         mNoClassesText = findViewById(R.id.classErrorText);
+        mProgressBar = findViewById(R.id.progressBar);
         mNoClassesText.setVisibility(View.INVISIBLE);
         mSchoolID = getIntent().getStringExtra("SchoolId");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,6 +76,7 @@ public class SelectClass extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
+        mProgressBar.setVisibility(View.GONE);
         final GroupAdapter adapter = new GroupAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(adapter);

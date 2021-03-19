@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.modularstudent.Models.ClassLinksModel;
 import com.example.modularstudent.Models.ClassModel;
@@ -26,6 +28,7 @@ public class LinksFragment extends Fragment {
     private RecyclerView mLinksRecyclerView;
     private ClassModel mMyClass;
     private ArrayList<ClassLinksModel> mClassLinksModels;
+    private ProgressBar mProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +38,7 @@ public class LinksFragment extends Fragment {
         mLinksRecyclerView = rootView.findViewById(R.id.rvLinks);
         mLinksErrorText = rootView.findViewById(R.id.linkErrorText);
         mLinksErrorText.setVisibility(View.INVISIBLE);
+        mProgressBar = rootView.findViewById(R.id.progressBar);
         mMyClass = getActivity().getIntent().getParcelableExtra("class");
         mClassLinksModels = getActivity().getIntent().getParcelableArrayListExtra("classlinks");
         initialiseRecyclerView();
@@ -42,6 +46,7 @@ public class LinksFragment extends Fragment {
     }
 
     private void initialiseRecyclerView() {
+        mProgressBar.setVisibility(View.GONE);
         GroupAdapter adapter = new GroupAdapter();
         mLinksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mLinksRecyclerView.setAdapter(adapter);

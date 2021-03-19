@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.modularstudent.Models.SchoolModel;
@@ -29,6 +30,7 @@ public class SelectSchool extends AppCompatActivity {
     private List<SchoolModel> mSchoolModelList = new ArrayList<>();
     private static final String TAG = "SelectSchool";
     private TextView mNoSchoolErrorText;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class SelectSchool extends AppCompatActivity {
         mNoSchoolErrorText = findViewById(R.id.schoolErrorText);
         mNoSchoolErrorText.setVisibility(View.INVISIBLE);
         getSupportActionBar().setTitle("Select School");
+        mProgressBar = findViewById(R.id.progressBar);
 
         initialiseViewModel();
         fetchSchoolContent();
@@ -59,6 +62,7 @@ public class SelectSchool extends AppCompatActivity {
         });
     }
     private void initialiseRecyclerView() {
+        mProgressBar.setVisibility(View.GONE);
         final GroupAdapter adapter = new GroupAdapter();
         mMRecyclerView.setLayoutManager( new LinearLayoutManager(this));
         mMRecyclerView.setAdapter(adapter);

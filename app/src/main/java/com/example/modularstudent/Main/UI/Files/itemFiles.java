@@ -56,9 +56,8 @@ public class itemFiles extends com.xwray.groupie.Item {
             request.allowScanningByMediaScanner();
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         }
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,tempTitle+".pdf");
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,tempTitle);
         DownloadManager downloadManager=(DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
-        request.setMimeType("application/pdf");
         request.allowScanningByMediaScanner();
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
         downloadManager.enqueue(request);
